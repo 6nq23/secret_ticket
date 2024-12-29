@@ -133,6 +133,33 @@
 
         }
 
+        // Function to show the ticket modal
+        function showTicketModal() 
+        {
+            var popup = document.getElementById("popup");
+            var overlay = document.getElementById("overlay");
+            
+            // Display the modal and overlay
+            popup.style.display = "flex";
+            overlay.style.display = "none";
+        }
+
+        // Function to close the ticket modal
+        function closeTicketModal() 
+        {
+            var popup = document.getElementById("popup");
+            var overlay = document.getElementById("overlay");
+            
+            // Hide the modal and overlay
+            popup.style.display = "none";
+            overlay.style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        });
+
         function back()
         {
             var box = document.querySelector(".tikeets");
@@ -229,20 +256,22 @@
                     </div>
                 </div>
                     <!-- Button to view the ticket -->
-                    <div class="button" id="viewTicketBtn">View your Ticket</div>
-
-                     <!-- QR Code Modal -->
-                    <div id="qrcodeModal" class="modal">
-                        <div class="modal-content">
-                            <span class="close" id="closeModal">&times;</span>
-                            <!-- Display the static QR code image -->
-                            <img id="qrcodeImage" src="path_to_your_qrcode_image.png" alt="QR Code">
+                    <div class="button" id="viewTicketBtn" onclick="showTicketModal()">View Ticket</div>
+                         <!-- Ticket Modal -->
+                    <center>
+                        <div id="popup" style="display: none;">
+                            <div>
+                                <img src="imgs/qrcode.png" alt="Ticket">
+                                I love u 
+                                <button class="button" id="close-popup-btn" onclick="closeTicketModal()">Close</button>
+                            </div>
                         </div>
-                    </div>
+                `   </center>
 
-                    <!-- Blur Overlay -->
-                    <div id="overlay" class="overlay"></div>
+                    <!-- Overlay -->
+                    <div id="overlay" style="display: flex;" onclick="closeTicketModal()"></div>
             </div>
+                </div>
         </div>
         <div class="trip">
             <div class="heading">
@@ -278,27 +307,6 @@
             navigator.serviceWorker.register('/service-worker.js')
             .then(() => console.log('Service Worker registered'));
         }
-    </script>
-    <script>
-    // Open the modal and show the QR code image
-    document.getElementById('viewTicketBtn').addEventListener('click', function() {
-        document.getElementById('qrcodeModal').style.display = 'flex';
-        document.getElementById('overlay').style.display = 'block';
-    });
-
-    // Close modal when clicking the close button
-    document.getElementById('closeModal').addEventListener('click', function() {
-        document.getElementById('qrcodeModal').style.display = 'none';
-        document.getElementById('overlay').style.display = 'none';
-    });
-
-    // Close modal when clicking outside the modal content
-    window.addEventListener('click', function(event) {
-        if (event.target == document.getElementById('qrcodeModal')) {
-            document.getElementById('qrcodeModal').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
-        }
-    });
     </script>
 </body>
 </html>
