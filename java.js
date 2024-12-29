@@ -25,6 +25,22 @@ function startTimer(durationInSeconds) {
 // Example usage:
 startTimer(7200); // Start with a 1-hour timer
 
+   // Function to generate and display a random Order ID
+   function generateRandomOrderID() {
+    const randomID = Math.floor(10000000000 + Math.random() * 90000000000); // Generate 11-digit number
+    document.getElementById('order-id').textContent = randomID; // Insert random ID into the span
+}
+
+ // Function to exchange the values of the "From" and "To" fields
+ function exchangeValues() {
+    const fromField = document.getElementById('from');
+    const toField = document.getElementById('to');
+    const temp = fromField.value;
+    fromField.value = toField.value;
+    toField.value = temp;
+}
+
+
 function toggleFullscreen() {
   const element = document.documentElement; // Full page
   

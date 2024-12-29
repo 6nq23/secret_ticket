@@ -141,7 +141,7 @@
             
             // Display the modal and overlay
             popup.style.display = "flex";
-            overlay.style.display = "none";
+            overlay.style.display = "flex";
         }
 
         // Function to close the ticket modal
@@ -182,6 +182,11 @@
             <input type="text" id="to" placeholder="Enter destination">
             <div id="to-suggestions" class="autocomplete-suggestions"></div>
 
+            <!-- Exchange Button -->
+            <div style="text-align: center; margin: 10px 0;">
+                <button type="button" class="exchange-button" onclick="exchangeValues()">⇆ Exchange</button>
+            </div>
+            
             <label for="from">To</label>
             <input type="text" id="from" placeholder="Enter starting point">
             <div id="from-suggestions" class="autocomplete-suggestions"></div>
@@ -261,8 +266,20 @@
                     <center>
                         <div id="popup" style="display: none;">
                             <div>
-                                <img src="imgs/qrcode.png" alt="Ticket">
-                                I love u 
+                                
+                                <div class="timer">
+                                    <div class="valid">
+                                        Scan QR code for more details
+                                    </div>
+                                    <img  src="imgs/qrcode.png" alt="Ticket">
+                                </div>
+                                <div class="gap1"></div>
+
+                                
+                                <div class="op3"Order ID: <span id="order-id"></span></div>
+                                <div class="gap2"></div>
+                                <div class="op4">For any queries regarding QR Ticket, please contact Surat Sitilink with Order Id.</div>
+
                                 <button class="button" id="close-popup-btn" onclick="closeTicketModal()">Close</button>
                             </div>
                         </div>
@@ -287,7 +304,8 @@
             </div>
             <div class="hl"><hr style="border: 1px dashed #d1d0d0;"></div>
             <div class="cobs">
-                <div class="op3">Order ID: 22385674379</div>
+                <div class="op3">Order ID: 22802645367 <span id="order-id"></span></div>
+
                 <div class="op4">For any queries regarding QR Ticket, please contact Surat Sitilink with Order Id.</div>
             </div>
             <div id="fullscreen-container">
